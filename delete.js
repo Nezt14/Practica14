@@ -1,28 +1,32 @@
 
-const fs = require('fs')
+const fs = require(`fs`)
 const fileName = 'vehiculos.json'
-fs.readFile(fileName, 'utf-8', (err, data) => {
-    if (err) {
-        console.log('Error al leer el archivo JSON:', err);
-        return;
-    }
-    try {
-        const vehiculos = JSON.parse(data);
 
-        const idEliminar = 2; 
-        const indice = vehiculos.findIndex(vehiculo => vehiculo.id === idEliminar)
+function deleteVehicle() {
+    fs.readFile(fileName, 'utf-8', (err, data) => {
+        if (err) {
+            console.log('Error al leer el archivo JSON:', err);
+            return;
+        }
+        try {
+            const vehiculos = JSON.parse(data);
 
-        vehiculos.splice(indice, 1)
+            const idEliminar = 2;
+            const indice = vehiculos.findIndex(vehiculo => vehiculo.id === idEliminar)
 
-        fs.writeFile(fileName, JSON.stringify(vehiculos, null, 2), (err) => {
-            if (err) {
-                console.log(`Error al escribir archivo JSON:`, err);
-            } else {
-                console.log(`Vehiculo eliminado del archivo JSON exitosamente`);
-            }
-        });
+            vehiculos.splice(indice, 1)
 
-    } catch (error) {
-        console.error('Error al parsear el JSON:', error);
-    }
-});
+            fs.writeFile(fileName, JSON.stringify(vehiculos, null, 2), (err) => {
+                if (err) {
+                    console.log(`Error al escribir archivo JSON:`, err);
+                } else {
+                    console.log(`Vehiculo eliminado del archivo JSON exitosamente`);
+                }
+            });
+
+        } catch (error) {
+            console.error(`Error al parsear el JSON:`, error);
+        }
+    });
+}
+module.exports = deleteVehicle

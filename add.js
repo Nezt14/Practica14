@@ -2,6 +2,7 @@
 const fs = require(`fs`)
 const fileName = `vehiculos.json`
 
+function AddVehicle(){
 fs.readFile(fileName, 'utf-8', (err, content) => {
 
 if (err) {
@@ -20,3 +21,5 @@ if (err) {
     })
 })
 
+}
+module.exports = AddVehicle;

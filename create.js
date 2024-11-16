@@ -6,6 +6,7 @@ const vehiculos = [
     { id: 2, marca: 'Honda', modelo: 'Civic', año: 2019 },
     { id: 3, marca: 'Ford', modelo: 'Focus', año: 2021 }
 ];
+function create(){
 fs.writeFile(fileName, JSON.stringify(vehiculos, null, 2), (err) => {
     if(err) {
         console.log('Error al crear archivo JSON:', err);
@@ -13,3 +14,5 @@ fs.writeFile(fileName, JSON.stringify(vehiculos, null, 2), (err) => {
         console.log(`Archivo JSON creado exitosamente con tres vehiculos iniciales`);
             }
 });
+}
+module.exports = create

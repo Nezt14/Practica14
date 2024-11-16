@@ -1,6 +1,7 @@
 
 const fs = require("fs");
 const fileName = "vehiculos.json";
+function modify (){
 fs.readFile(fileName, "utf-8", (err, data) => {
     if (err) {
 
@@ -28,3 +29,5 @@ fs.readFile(fileName, "utf-8", (err, data) => {
         console.error("Error al parsear el JSON: ", error);
     }
 });
+}
+module.exports = modify;

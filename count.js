@@ -1,5 +1,6 @@
-const fs = requiere(`fs`)
+const fs = require(`fs`)
 const fileName = `vehiculos.json`
+
 
 fs.readFile(fileName, `utf-8`, (err,content)=>{
     if(err){
